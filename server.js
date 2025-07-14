@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
-const TICKETMASTER_API_KEY = 'YOUR_TICKETMASTER_API_KEY'; // 🔐 Put your real key here
+const TICKETMASTER_API_KEY = 'SlX8PX1oC33TwpySjmIuMGdmg3MAZUND'; // 🔐 Put your real key here
 
 app.get('/events', async (req, res) => {
   const { lat, lon } = req.query;
@@ -17,6 +17,7 @@ app.get('/events', async (req, res) => {
     const response = await fetch(url);
     const data = await response.json();
     res.json(data);
+    console.log(data);
   } catch (err) {
     res.status(500).json({ error: 'Error fetching events.' });
   }
